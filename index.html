@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY SCREEN-STRUCK LITTLE UNIVERSE</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E𓇼%3C/text%3E%3C/svg%3E">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&family=Eagle+Lake&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcf9f5;
+            --text-color: #2b2321;
+            --primary-pink: #e86f86;
+            --soft-pink: #f7d6de;
+            --pista-green: #c8dfcd;
+            --butter-yellow: #fdf3d8;
+            --warm-cream: #f4eee1;
+            --chocolate: #4a3530;
+            --lavender: #ded1e6;
+            --sky-blue: #d4e6f1;
+            --accent-brown: #7a5c53;
+            --card-bg: #ffffff;
+            --border-color: #e5d8cc;
+            --shadow: 0 8px 30px rgba(74, 53, 48, 0.08);
+            --font-serif: 'Instrument Serif', serif;
+            --font-romantic: 'Eagle Lake', serif;
+            --font-handwriting: 'Beth Ellen', cursive;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(#e5d8cc 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+        }
+
+        /* Typography utility */
+        .font-serif { font-family: var(--font-serif); }
+        .font-romantic { font-family: var(--font-romantic); }
+        .font-handwriting { font-family: var(--font-handwriting); }
+
+        /* Header & Cover */
+        header.magazine-cover {
+            text-align: center;
+            padding: 4rem 2rem 2rem 2rem;
+            border-bottom: 2px dashed var(--border-color);
+            position: relative;
+            background: linear-gradient(180deg, var(--soft-pink) 0%, var(--bg-color) 100%);
+        }
+
+        .magazine-tag {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        h1.main-title {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            line-height: 0.95;
+            font-weight: 400;
+            color: var(--chocolate);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 0px var(--soft-pink);
+        }
+
+        .subtitle {
+            font-family: var(--font-romantic);
+            font-size: 1rem;
+            color: var(--accent-brown);
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* Nav Menu */
+        nav.main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.5rem;
+            background: var(--warm-cream);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        nav.main-nav button {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--chocolate);
+        }
+
+        nav.main-nav button:hover, nav.main-nav button.active {
+            background: var(--primary-pink);
+            color: white;
+            border-color: var(--primary-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(232, 111, 134, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Sections */
+        .section-view {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .section-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid var(--chocolate);
+            padding-bottom: 1rem;
+        }
+
+        .section-title-wrap h2 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            line-height: 1;
+            color: var(--chocolate);
+        }
+
+        .section-title-wrap p {
+            font-family: var(--font-handwriting);
+            font-size: 1.1rem;
+            color: var(--accent-brown);
+            margin-top: 0.5rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: var(--chocolate);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--primary-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background: var(--warm-cream);
+            color: var(--chocolate);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--soft-pink);
+            color: var(--chocolate);
+        }
+
+        /* Controls bar (Search, Filter, Sort) */
+        .controls-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box, .filter-box, .sort-box {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        input[type="text"], select, textarea {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-family: var(--font-sans);
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 0 3px var(--soft-pink);
+        }
+
+        /* Grid Layouts */
+        .entries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards Styling */
+        .entry-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .entry-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(74, 53, 48, 0.12);
+        }
+
+        .card-img-wrap {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            background: var(--warm-cream);
+            overflow: hidden;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .entry-card:hover .card-img-wrap img {
+            transform: scale(1.04);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--chocolate);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border-color);
+        }
+
+        .pin-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-color);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .pin-btn.pinned {
+            background: var(--primary-pink);
+            color: white;
+            border-color: var(--primary-pink);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            line-height: 1.1;
+            color: var(--chocolate);
+            margin-bottom: 0.3rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--accent-brown);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-notes {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .tag {
+            background: var(--warm-cream);
+            color: var(--accent-brown);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .card-actions button {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--chocolate);
+        }
+
+        .card-actions button:hover {
+            background: var(--warm-cream);
+        }
+
+        .card-actions button.delete-btn:hover {
+            background: #ffe6e6;
+            color: #d9534f;
+            border-color: #d9534f;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 35, 33, 0.6);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 650px;
+            max-height: 90vh;
+            border-radius: 24px;
+            padding: 2.5rem;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .modal-header h3 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--chocolate);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent-brown);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--chocolate);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+        }
+
+        .image-upload-preview {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .preview-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: var(--warm-cream);
+            border: 2px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .preview-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Specific section themes */
+        #green-forest {
+            --section-primary: #c8dfcd;
+            --section-accent: #3b533f;
+        }
+        #ruined-me {
+            --section-primary: #e86f86;
+            --section-accent: #4a2028;
+        }
+        #albums {
+            --section-primary: #ded1e6;
+            --section-accent: #3a2b42;
+        }
+
+        /* Album detail modal / special layouts */
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .album-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .album-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .side-feature-banner {
+            background: var(--warm-cream);
+            border: 2px dashed var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .side-feature-banner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .side-box {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .side-box h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--chocolate);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Backup / Restore Controls */
+        .backup-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: var(--warm-cream);
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Homepage specific styling */
+        .home-hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .home-hero {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-text h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1;
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-collage {
+            position: relative;
+            height: 400px;
+            background: var(--warm-cream);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-collage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .quote-box {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .quote-box blockquote {
+            font-family: var(--font-romantic);
+            font-size: 1.25rem;
+            color: var(--chocolate);
+            margin-bottom: 1rem;
+        }
+
+        .quote-box cite {
+            font-family: var(--font-handwriting);
+            font-size: 1rem;
+            color: var(--accent-brown);
+        }
+
+        /* Stats Counter */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card .number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--primary-pink);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-brown);
+        }
+
+        .random-btn-wrap {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .controls-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="magazine-cover">
+        <div class="magazine-tag">The Art of Being Obsessed — Issue No. 01</div>
+        <h1 class="main-title">MY SCREEN-STRUCK<br>LITTLE UNIVERSE</h1>
+        <p class="subtitle font-romantic">"A collection of people, stories, sounds and fictional worlds I refuse to move on from."</p>
+    </header>
+
+    <nav class="main-nav" id="mainNav">
+        <button onclick="switchSection('home')" class="active">Home 🏠</button>
+        <button onclick="switchSection('ships')">Favourite Ships ♡</button>
+        <button onclick="switchSection('heart')">In My Heart ✨</button>
+        <button onclick="switchSection('greenForest')">Green Forest 🌿</button>
+        <button onclick="switchSection('ruinedMe')">Who Ruined Me 💔</button>
+        <button onclick="switchSection('fineShyts')">Fine Shyts 🥂</button>
+        <button onclick="switchSection('albums')">Favourite Albums 🎧</button>
+        <button onclick="switchSection('genres')">Genres 🎬</button>
+        <button onclick="switchSection('artists')">Eye-Pleasing Artists ✨</button>
+        <button onclick="switchSection('meCoded')">Me-Coded 🪞</button>
+        <button onclick="switchSection('protect')">Protect at All Costs 🛡️</button>
+    </nav>
+
+    <div class="container">
+
+        <!-- HOME SECTION -->
+        <section id="home" class="section-view active">
+            <div class="home-hero">
+                <div class="hero-text">
+                    <span class="magazine-tag">Welcome to my mind</span>
+                    <h2>Characters, music, stories & everything in between.</h2>
+                    <p class="font-sans" style="font-size: 1.1rem; color: var(--accent-brown); margin-bottom: 2rem;">
+                        This website is my personal archive of everything I adore in entertainment: favourite ships, fictional relationships, characters, artists, albums, music, dramas, anime, series, and all the little things that have emotionally taken over my brain.
+                    </p>
+                    <button class="btn" onclick="triggerRandomFavorite()">✨ Spin the Random Obsession Wheel</button>
+                </div>
+                <div class="hero-collage" id="homeHeroCollage">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Collage visual">
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <blockquote id="quoteText">"Some stories don't just end when the credits roll; they take up permanent residence in your soul."</blockquote>
+                <cite id="quoteAuthor">— My Screen-Struck Manifesto</cite>
+            </div>
+
+            <div class="stats-grid" id="statsGrid">
+                <!-- Dynamically populated stats -->
+            </div>
+        </section>
+
+        <!-- SECTION 01: FAVOURITE SHIPS -->
+        <section id="ships" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>Favourite Ships</h2>
+                    <p>Couples, BL pairs, drama pairings, and fictional duos I adore.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('ships')">+ Add New Ship</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search ships..." oninput="filterEntries('ships', this.value)">
+                </div>
+                <div class="filter-box">
+                    <select onchange="filterCategory('ships', this.value)">
+                        <option value="">All Categories</option>
+                        <option value="BL Pair">BL Pair</option>
+                        <option value="Drama Duo">Drama Duo</option>
+                        <option value="Anime Pair">Anime Pair</option>
+                        <option value="Film Couple">Film Couple</option>
+                    </select>
+                </div>
+                <div class="sort-box">
+                    <select onchange="sortEntries('ships', this.value)">
+                        <option value="newest">Newest Added</option>
+                        <option value="pinned">Pinned First</option>
+                        <option value="name">Alphabetical</option>
+                    </select>
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-ships"></div>
+        </section>
+
+        <!-- SECTION 02: IN MY HEART -->
+        <section id="heart" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>In My Heart</h2>
+                    <p>Fictional relationships, friendships, and beloved characters.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('heart')">+ Add Entry</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search heart..." oninput="filterEntries('heart', this.value)">
+                </div>
+                <div class="filter-box">
+                    <select onchange="filterCategory('heart', this.value)">
+                        <option value="">All Types</option>
+                        <option value="Favourite Pair">Favourite Pair</option>
+                        <option value="Favourite Friendship">Favourite Friendship</option>
+                        <option value="Favourite Character">Favourite Character</option>
+                    </select>
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-heart"></div>
+        </section>
+
+        <!-- SECTION 03: GREEN FOREST -->
+        <section id="greenForest" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>Green Forest 🌿</h2>
+                    <p>Characters who represent kindness, patience, loyalty, and emotional maturity.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('greenForest')">+ Add Green Flag</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search green forest..." oninput="filterEntries('greenForest', this.value)">
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-greenForest"></div>
+        </section>
+
+        <!-- SECTION 04: WHO RUINED ME -->
+        <section id="ruinedMe" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>The Character Who Ruined Me</h2>
+                    <p>Characters who left a permanent emotional mark (nicely).</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('ruinedMe')">+ Add Entry</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." oninput="filterEntries('ruinedMe', this.value)">
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-ruinedMe"></div>
+        </section>
+
+        <!-- SECTION 05: FINE SHYTS -->
+        <section id="fineShyts" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>Fine Shyts / Hear Me Out</h2>
+                    <p>Fictional crushes, attractive characters, and unconventional favourites.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('fineShyts')">+ Add Crushes</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." oninput="filterEntries('fineShyts', this.value)">
+                </div>
+                <div class="filter-box">
+                    <select onchange="filterCategory('fineShyts', this.value)">
+                        <option value="">All Categories</option>
+                        <option value="Obvious Choice">Obvious Choice</option>
+                        <option value="Unexpected Choice">Unexpected Choice</option>
+                        <option value="Hear Me Out">Hear Me Out</option>
+                    </select>
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-fineShyts"></div>
+        </section>
+
+        <!-- SECTION 06: FAVOURITE ALBUMS -->
+        <section id="albums" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>Favourite Albums & Music</h2>
+                    <p>Side 1 (Mentally) & Side 2 (Physically), plus complete album archives.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('albums')">+ Add Album/Song</button>
+                </div>
+            </div>
+
+            <div class="side-feature-banner">
+                <div class="side-box">
+                    <span class="magazine-tag">Side 1 — Mentally</span>
+                    <h3>Wu Ji</h3>
+                    <p class="font-handwriting" style="color: var(--accent-brown); margin: 0.5rem 0 1rem 0;">Music that gets into my head, affects my emotions, and stays with me mentally.</p>
+                    <div id="side1Content"></div>
+                </div>
+                <div class="side-box">
+                    <span class="magazine-tag">Side 2 — Physically</span>
+                    <h3>Moonwalkin</h3>
+                    <p class="font-handwriting" style="color: var(--accent-brown); margin: 0.5rem 0 1rem 0;">Music that makes me feel confident, energetic, and physically connected to the rhythm.</p>
+                    <div id="side2Content"></div>
+                </div>
+            </div>
+
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search albums or artists..." oninput="filterEntries('albums', this.value)">
+                </div>
+            </div>
+            <div class="album-grid" id="grid-albums"></div>
+        </section>
+
+        <!-- SECTION 07: GENRES -->
+        <section id="genres" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>Favourite Genres</h2>
+                    <p>Music genres and screen genres in dramas, films, and anime.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('genres')">+ Add Genre</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="filter-box">
+                    <select onchange="filterCategory('genres', this.value)">
+                        <option value="">All Types</option>
+                        <option value="Music Genre">Music Genre</option>
+                        <option value="Screen Genre">Screen Genre</option>
+                    </select>
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-genres"></div>
+        </section>
+
+        <!-- SECTION 08: EYE-PLEASING ARTISTS -->
+        <section id="artists" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>Eye-Pleasing Artists ✨</h2>
+                    <p>Visual archive of actors, idols, and singers with exquisite styling and presence.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('artists')">+ Add Artist</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search artists..." oninput="filterEntries('artists', this.value)">
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-artists"></div>
+        </section>
+
+        <!-- SECTION 09: ME-CODED CHARACTERS -->
+        <section id="meCoded" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>Me-Coded Characters 🪞</h2>
+                    <p>Characters whose personalities, habits, and thoughts remind me of myself.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('meCoded')">+ Add Character</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." oninput="filterEntries('meCoded', this.value)">
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-meCoded"></div>
+        </section>
+
+        <!-- SECTION 10: PROTECT AT ALL COSTS -->
+        <section id="protect" class="section-view">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2>Characters I'll Protect With My Whole Life 🛡️</h2>
+                    <p>Characters who deserve happiness, kindness, peace, and everything good.</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="openModal('protect')">+ Add Character</button>
+                </div>
+            </div>
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." oninput="filterEntries('protect', this.value)">
+                </div>
+            </div>
+            <div class="entries-grid" id="grid-protect"></div>
+        </section>
+
+        <!-- Backup & Restore Bar -->
+        <div class="backup-bar">
+            <button class="btn btn-secondary" onclick="exportData()">💾 Backup Archive (JSON)</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">📂 Restore Archive</button>
+            <input type="file" id="importFile" style="display:none" accept=".json" onchange="importData(event)">
+        </div>
+    </div>
+
+    <!-- Universal Entry Modal -->
+    <div class="modal-overlay" id="entryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Entry</h3>
+                <button class="close-modal" onclick="closeModal()">×</button>
+            </div>
+            <form id="entryForm" onsubmit="saveEntry(event)">
+                <input type="hidden" id="editEntryId">
+                <input type="hidden" id="currentSection">
+
+                <div class="form-group">
+                    <label>Title / Name</label>
+                    <input type="text" id="formTitle" required placeholder="e.g. Wei Wuxian & Lan Wangji">
+                </div>
+
+                <div class="form-group">
+                    <label>Subtitle / Source / Artist</label>
+                    <input type="text" id="formSubtitle" placeholder="e.g. The Untamed / MDZS">
+                </div>
+
+                <div class="form-group" id="categoryGroup">
+                    <label>Category / Tag Type</label>
+                    <select id="formCategory">
+                        <option value="General">General</option>
+                        <option value="BL Pair">BL Pair</option>
+                        <option value="Drama Duo">Drama Duo</option>
+                        <option value="Anime Pair">Anime Pair</option>
+                        <option value="Film Couple">Film Couple</option>
+                        <option value="Favourite Pair">Favourite Pair</option>
+                        <option value="Favourite Friendship">Favourite Friendship</option>
+                        <option value="Favourite Character">Favourite Character</option>
+                        <option value="Obvious Choice">Obvious Choice</option>
+                        <option value="Unexpected Choice">Unexpected Choice</option>
+                        <option value="Hear Me Out">Hear Me Out</option>
+                        <option value="Music Genre">Music Genre</option>
+                        <option value="Screen Genre">Screen Genre</option>
+                        <option value="Side 1 Mentally">Side 1 Mentally (Wu Ji)</option>
+                        <option value="Side 2 Physically">Side 2 Physically (Moonwalkin)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Image (Upload from device or enter URL)</label>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <input type="file" id="imageFileInput" accept="image/*" onchange="handleImageUpload(event)" style="font-size: 0.8rem;">
+                    </div>
+                    <input type="text" id="formImage" placeholder="https://... or uploaded base64 data">
+                    <div class="image-upload-preview">
+                        <div class="preview-box">
+                            <img id="imagePreview" src="" alt="Preview" style="display:none;">
+                            <span id="previewPlaceholder" style="font-size: 0.7rem; color: var(--accent-brown);">Preview</span>
+                        </div>
+                        <span class="font-handwriting" style="font-size: 0.85rem; color: var(--accent-brown);">Image loaded & ready</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Personal Notes / Why I Love Them / Description</label>
+                    <textarea id="formNotes" rows="4" placeholder="Write your emotional thoughts, favourite quotes, or tracklists here..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Tags (Comma separated)</label>
+                    <input type="text" id="formTags" placeholder="comfort, soulmates, masterpiece, iconic">
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn">Save Entry</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // IndexedDB Wrapper for handling large base64 image storage reliably without localStorage limits
+        const DB_NAME = "ScreenStruckUniverseDB";
+        const STORE_NAME = "entries";
+        let db = null;
+
+        function initIndexedDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, 1);
+                request.onerror = event => reject(event.target.error);
+                request.onsuccess = event => {
+                    db = event.target.result;
+                    resolve(db);
+                };
+                request.onupgradeneeded = event => {
+                    const database = event.target.result;
+                    if (!database.objectStoreNames.contains(STORE_NAME)) {
+                        database.createObjectStore(STORE_NAME, { keyPath: "id" });
+                    }
+                };
+            });
+        }
+
+        // Default initial data for rich editorial experience
+        const defaultEntries = [
+            {
+                id: "ship_1",
+                section: "ships",
+                title: "Wei Wuxian & Lan Wangji",
+                subtitle: "The Untamed / Mo Dao Zu Shi",
+                category: "BL Pair",
+                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+                notes: "Soulmates across lifetimes. Their devotion, quiet understanding, and the 16-year wait defined eternal love.",
+                tags: ["soulmates", "epics", "comfort"],
+                pinned: true,
+                createdAt: Date.now() - 5000000
+            },
+            {
+                id: "green_1",
+                section: "greenForest",
+                title: "Lan Wangji",
+                subtitle: "The Untamed",
+                category: "Green Forest",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+                notes: "The ultimate green forest character. Unwavering loyalty, infinite patience, and protected him fiercely through all the world's judgment.",
+                tags: ["loyalty", "green flag", "patience"],
+                pinned: true,
+                createdAt: Date.now() - 4000000
+            },
+            {
+                id: "album_1",
+                section: "albums",
+                title: "Wu Ji (无羁)",
+                subtitle: "Xiao Zhan & Wang Yibo",
+                category: "Side 1 Mentally",
+                image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
+                notes: "Tracklist: 1. Wu Ji. The melody alone evokes instant tears and warm nostalgia. Lives permanently in my mind.",
+                tags: ["soundtrack", "emotional", "masterpiece"],
+                pinned: true,
+                createdAt: Date.now() - 3000000
+            },
+            {
+                id: "ruined_1",
+                section: "ruinedMe",
+                title: "Xie Lian",
+                subtitle: "Heaven Official's Blessing",
+                category: "Who Ruined Me",
+                image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80",
+                notes: "After everything he endured for 800 years, his heart remained gentle. Ruined me in the most beautiful way possible.",
+                tags: ["heartbreaking", "comfort", "resilience"],
+                pinned: true,
+                createdAt: Date.now() - 2000000
+            }
+        ];
+
+        let allEntries = [];
+
+        async function loadEntries() {
+            return new Promise((resolve) => {
+                if (!db) {
+                    allEntries = defaultEntries;
+                    resolve(allEntries);
+                    return;
+                }
+                const transaction = db.transaction([STORE_NAME], "readonly");
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.getAll();
+                request.onsuccess = event => {
+                    const data = event.target.result;
+                    if (data && data.length > 0) {
+                        allEntries = data;
+                    } else {
+                        allEntries = defaultEntries;
+                        // Save defaults
+                        saveAllEntriesToDB();
+                    }
+                    resolve(allEntries);
+                };
+            });
+        }
+
+        async function saveAllEntriesToDB() {
+            if (!db) return;
+            const transaction = db.transaction([STORE_NAME], "readwrite");
+            const store = transaction.objectStore(STORE_NAME);
+            store.clear();
+            allEntries.forEach(entry => store.put(entry));
+        }
+
+        // Navigation Switching
+        function switchSection(sectionId) {
+            document.querySelectorAll('.section-view').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.main-nav button').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Find nav button
+            const buttons = document.querySelectorAll('.main-nav button');
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(sectionId)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            renderSectionData(sectionId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Render Section Data
+        async function renderSectionData(sectionId, filterText = '', filterCat = '', sortBy = 'newest') {
+            await loadEntries();
+            updateStats();
+
+            if(sectionId === 'home') {
+                renderHomeQuotes();
+                return;
+            }
+
+            if(sectionId === 'albums') {
+                renderSideFeatures();
+            }
+
+            let entries = allEntries.filter(e => e.section === sectionId || (sectionId === 'heart' && ['favouritePairs', 'favouriteFriendships', 'favouriteCharacters'].includes(e.section)));
+            
+            // If section is heart, include heart subsections
+            if(sectionId === 'heart') {
+                entries = allEntries.filter(e => ['heart', 'favouritePairs', 'favouriteFriendships', 'favouriteCharacters'].includes(e.section));
+            }
+
+            // Filter by text
+            if(filterText) {
+                const query = filterText.toLowerCase();
+                entries = entries.filter(e => 
+                    (e.title && e.title.toLowerCase().includes(query)) ||
+                    (e.subtitle && e.subtitle.toLowerCase().includes(query)) ||
+                    (e.notes && e.notes.toLowerCase().includes(query)) ||
+                    (e.tags && e.tags.some(t => t.toLowerCase().includes(query)))
+                );
+            }
+
+            // Filter by category
+            if(filterCat) {
+                entries = entries.filter(e => e.category === filterCat);
+            }
+
+            // Sort
+            if(sortBy === 'pinned') {
+                entries.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
+            } else if(sortBy === 'name') {
+                entries.sort((a, b) => a.title.localeCompare(b.title));
+            } else {
+                entries.sort((a, b) => b.createdAt - a.createdAt);
+            }
+
+            const gridId = sectionId === 'heart' ? 'grid-heart' : `grid-${sectionId}`;
+            const grid = document.getElementById(gridId);
+            if(!grid) return;
+
+            grid.innerHTML = '';
+
+            if(entries.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--accent-brown); font-family: var(--font-handwriting); font-size: 1.2rem;">No entries found in this universe yet. Click '+ Add' to create one! ✨</div>`;
+                return;
+            }
+
+            entries.forEach(entry => {
+                const card = document.createElement('div');
+                card.className = 'entry-card';
+                card.innerHTML = `
+                    <div class="card-img-wrap">
+                        <img src="${entry.image || 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80'}" alt="${entry.title}">
+                        <div class="card-badge">${entry.category || 'Collection'}</div>
+                        <button class="pin-btn ${entry.pinned ? 'pinned' : ''}" onclick="togglePin('${entry.id}')" title="Pin entry">★</button>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${entry.title}</h3>
+                        <div class="card-subtitle">${entry.subtitle || ''}</div>
+                        <p class="card-notes">${entry.notes || ''}</p>
+                        <div class="card-meta">
+                            ${(entry.tags || []).map(t => `<span class="tag">#${t}</span>`).join('')}
+                        </div>
+                        <div class="card-actions">
+                            <button onclick="editEntry('${entry.id}')">Edit</button>
+                            <button class="delete-btn" onclick="deleteEntry('${entry.id}')">Delete</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Side 1 & Side 2 features
+        function renderSideFeatures() {
+            const side1El = document.getElementById('side1Content');
+            const side2El = document.getElementById('side2Content');
+            
+            const side1Entry = allEntries.find(e => e.category === 'Side 1 Mentally' || e.section === 'albums');
+            const side2Entry = allEntries.find(e => e.category === 'Side 2 Physically');
+
+            if(side1El) {
+                side1El.innerHTML = `
+                    <h4 class="font-serif" style="font-size: 1.5rem; color: var(--chocolate);">${side1Entry ? side1Entry.title : 'Wu Ji'}</h4>
+                    <p style="font-size: 0.9rem; margin: 0.5rem 0;">${side1Entry ? side1Entry.notes : 'Deep emotional connection and unforgettable melodies.'}</p>
+                `;
+            }
+            if(side2El) {
+                side2El.innerHTML = `
+                    <h4 class="font-serif" style="font-size: 1.5rem; color: var(--chocolate);">${side2Entry ? side2Entry.title : 'Moonwalkin'}</h4>
+                    <p style="font-size: 0.9rem; margin: 0.5rem 0;">${side2Entry ? side2Entry.notes : 'Rhythmic, confident, high-energy tracks that get you moving.'}</p>
+                `;
+            }
+        }
+
+        // Stats Counter & Homepage Quotes
+        function updateStats() {
+            const statsGrid = document.getElementById('statsGrid');
+            if(!statsGrid) return;
+
+            const total = allEntries.length;
+            const shipsCount = allEntries.filter(e => e.section === 'ships').length;
+            const albumsCount = allEntries.filter(e => e.section === 'albums').length;
+            const artistsCount = allEntries.filter(e => e.section === 'artists').length;
+
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <div class="number">${total}</div>
+                    <div class="label">Total Obsessions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${shipsCount}</div>
+                    <div class="label">Favourite Ships</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${albumsCount}</div>
+                    <div class="label">Albums & Songs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${artistsCount}</div>
+                    <div class="label">Artists Archived</div>
+                </div>
+            `;
+        }
+
+        function renderHomeQuotes() {
+            const quotes = [
+                { quote: "Some stories don't just end when the credits roll; they take up permanent residence in your soul.", author: "My Screen-Struck Manifesto" },
+                { quote: "I am not obsessed, I am emotionally invested in fictional masterpieces.", author: "Fandom Diary" },
+                { quote: "A great ship heals parts of the soul you didn't even know were broken.", author: "Shipping Chronicles" }
+            ];
+            const q = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quoteText').innerText = `"${q.quote}"`;
+            document.getElementById('quoteAuthor').innerText = `— ${q.author}`;
+        }
+
+        // Modal Management
+        let activeSectionForModal = 'ships';
+
+        function openModal(sectionId, entryId = null) {
+            activeSectionForModal = sectionId;
+            document.getElementById('currentSection').value = sectionId;
+            document.getElementById('entryModal').classList.add('open');
+            
+            if(entryId) {
+                document.getElementById('modalTitle').innerText = "Edit Entry";
+                const entry = allEntries.find(e => e.id === entryId);
+                if(entry) {
+                    document.getElementById('editEntryId').value = entry.id;
+                    document.getElementById('formTitle').value = entry.title || '';
+                    document.getElementById('formSubtitle').value = entry.subtitle || '';
+                    document.getElementById('formCategory').value = entry.category || 'General';
+                    document.getElementById('formImage').value = entry.image || '';
+                    document.getElementById('formNotes').value = entry.notes || '';
+                    document.getElementById('formTags').value = (entry.tags || []).join(', ');
+                    
+                    if(entry.image) {
+                        const imgPrev = document.getElementById('imagePreview');
+                        imgPrev.src = entry.image;
+                        imgPrev.style.display = 'block';
+                        document.getElementById('previewPlaceholder').style.display = 'none';
+                    }
+                }
+            } else {
+                document.getElementById('modalTitle').innerText = "Add New Entry";
+                document.getElementById('entryForm').reset();
+                document.getElementById('editEntryId').value = '';
+                document.getElementById('imagePreview').style.display = 'none';
+                document.getElementById('previewPlaceholder').style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('entryModal').classList.remove('open');
+        }
+
+        // Image Handling with Base64 preview & storage
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if(file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const base64Data = e.target.result;
+                    document.getElementById('formImage').value = base64Data;
+                    const imgPrev = document.getElementById('imagePreview');
+                    imgPrev.src = base64Data;
+                    imgPrev.style.display = 'block';
+                    document.getElementById('previewPlaceholder').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Save entry
+        async function saveEntry(event) {
+            event.preventDefault();
+            const id = document.getElementById('editEntryId').value || 'entry_' + Date.now();
+            const section = document.getElementById('currentSection').value;
+            const title = document.getElementById('formTitle').value;
+            const subtitle = document.getElementById('formSubtitle').value;
+            const category = document.getElementById('formCategory').value;
+            const image = document.getElementById('formImage').value;
+            const notes = document.getElementById('formNotes').value;
+            const tagsInput = document.getElementById('formTags').value;
+            const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t.length > 0) : [];
+
+            const existingIndex = allEntries.findIndex(e => e.id === id);
+            const entryData = {
+                id,
+                section,
+                title,
+                subtitle,
+                category,
+                image,
+                notes,
+                tags,
+                pinned: existingIndex >= 0 ? allEntries[existingIndex].pinned : false,
+                createdAt: existingIndex >= 0 ? allEntries[existingIndex].createdAt : Date.now()
+            };
+
+            if(existingIndex >= 0) {
+                allEntries[existingIndex] = entryData;
+            } else {
+                allEntries.push(entryData);
+            }
+
+            await saveAllEntriesToDB();
+            closeModal();
+            renderSectionData(section);
+        }
+
+        async function deleteEntry(id) {
+            if(confirm("Are you sure you want to remove this from your universe?")) {
+                const entry = allEntries.find(e => e.id === id);
+                const section = entry ? entry.section : 'ships';
+                allEntries = allEntries.filter(e => e.id !== id);
+                await saveAllEntriesToDB();
+                renderSectionData(section);
+            }
+        }
+
+        async function togglePin(id) {
+            const entry = allEntries.find(e => e.id === id);
+            if(entry) {
+                entry.pinned = !entry.pinned;
+                await saveAllEntriesToDB();
+                renderSectionData(entry.section);
+            }
+        }
+
+        function editEntry(id) {
+            const entry = allEntries.find(e => e.id === id);
+            if(entry) {
+                openModal(entry.section, id);
+            }
+        }
+
+        // Filtering & Sorting handlers
+        function filterEntries(sectionId, query) {
+            renderSectionData(sectionId, query, '', 'newest');
+        }
+
+        function filterCategory(sectionId, cat) {
+            renderSectionData(sectionId, '', cat, 'newest');
+        }
+
+        function sortEntries(sectionId, sortBy) {
+            renderSectionData(sectionId, '', '', sortBy);
+        }
+
+        // Random Favourite Wheel
+        function triggerRandomFavorite() {
+            if(allEntries.length === 0) {
+                alert("No entries saved yet!");
+                return;
+            }
+            const randomEntry = allEntries[Math.floor(Math.random() * allEntries.length)];
+            alert(`✨ Random Obsession Pick ✨\n\nTitle: ${randomEntry.title}\nSource: ${randomEntry.subtitle || 'N/A'}\nNotes: ${randomEntry.notes || 'An absolute masterpiece.'}`);
+        }
+
+        // JSON Backup & Restore
+        function exportData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allEntries, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `screen_struck_universe_backup_${Date.now()}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if(Array.isArray(imported)) {
+                        allEntries = imported;
+                        await saveAllEntriesToDB();
+                        alert("Archive successfully restored!");
+                        switchSection('home');
+                    } else {
+                        alert("Invalid backup file format.");
+                    }
+                } catch(err) {
+                    alert("Error parsing JSON backup file.");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Initialize App on Load
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await initIndexedDB();
+                await loadEntries();
+            } catch(e) {
+                console.warn("IndexedDB failed, falling back to memory arrays", e);
+                allEntries = defaultEntries;
+            }
+            switchSection('home');
+        });
+    </script>
+</body>
+</html>
